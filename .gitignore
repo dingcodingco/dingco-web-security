@@ -18,3 +18,7 @@ oauth/.playwright-mcp/
 *_all*.png
 shot_*.png
 test_*.png
+
+# Spring/Gradle 빌드 산출물
+oauth-spring/build/
+oauth-spring/.gradle/
