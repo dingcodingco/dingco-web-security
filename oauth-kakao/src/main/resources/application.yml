@@ -1,0 +1,12 @@
+server:
+  port: 8080
+
+# 카카오 개발자 콘솔(developers.kakao.com)에서 발급받은 본인 키를 넣으세요.
+#  - client-id     : 내 애플리케이션 > 앱 키 > REST API 키
+#  - client-secret : 카카오 로그인 > 보안 > Client Secret (코드)
+#  - redirect-uri  : 카카오 로그인 > Redirect URI 에 등록한 값과 동일해야 함
+# 환경변수(KAKAO_CLIENT_ID / KAKAO_CLIENT_SECRET)로 덮어쓸 수도 있습니다.
+kakao:
+  client-id: ${KAKAO_CLIENT_ID:여기에-REST-API-키-붙여넣기}
+  client-secret: ${KAKAO_CLIENT_SECRET:여기에-client-secret-붙여넣기}
+  redirect-uri: http://localhost:8080/social/login/kakao

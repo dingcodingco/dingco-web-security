@@ -22,3 +22,5 @@ test_*.png
 # Spring/Gradle 빌드 산출물
 oauth-spring/build/
 oauth-spring/.gradle/
+oauth-kakao/build/
+oauth-kakao/.gradle/
