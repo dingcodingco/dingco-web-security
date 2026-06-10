@@ -8,3 +8,13 @@ certs/
 shots/
 
 .DS_Store
+
+# 다이어그램 렌더 스크래치
+oauth/out/
+oauth/final/
+oauth/*.png
+oauth/.playwright-mcp/
+.playwright-mcp/
+*_all*.png
+shot_*.png
+test_*.png
