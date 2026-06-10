@@ -45,6 +45,8 @@ public class AuthorizationServerConfig {
     public SecurityFilterChain authorizationServerSecurityFilterChain(HttpSecurity http) throws Exception {
         OAuth2AuthorizationServerConfiguration.applyDefaultSecurity(http);
         http.getConfigurer(OAuth2AuthorizationServerConfigurer.class)
+                // 카카오처럼 "이 앱에 권한을 허용할까요?" 동의(consent) 화면을 직접 띄운다
+                .authorizationEndpoint(a -> a.consentPage("/oauth2/consent"))
                 .oidc(Customizer.withDefaults()); // OpenID Connect 활성화 (id_token 발급)
         // 로그인 안 된 사용자가 인가 요청을 하면 로그인 페이지로 보낸다
         http.exceptionHandling(e ->
@@ -88,7 +90,7 @@ public class AuthorizationServerConfig {
                 .scope(OidcScopes.PROFILE)
                 .scope("read")
                 // 데모를 단순하게: 동의(consent) 화면 생략하고 바로 코드 발급
-                .clientSettings(ClientSettings.builder().requireAuthorizationConsent(false).build())
+                .clientSettings(ClientSettings.builder().requireAuthorizationConsent(true).build())
                 .build();
         return new InMemoryRegisteredClientRepository(client);
     }
